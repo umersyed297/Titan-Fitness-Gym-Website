@@ -1,6 +1,6 @@
-# [Project name]
+# Titan Fitness Gym
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Marketing and lead-generation website for Titan Fitness Gym in Clifton, Karachi.
 
 ## Run & Operate
 
@@ -22,23 +22,28 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/titan-fitness-gym/src/App.tsx` — single-page website experience
+- `artifacts/titan-fitness-gym/src/content.ts` — editable business, programs, trainers, pricing, gallery, and testimonials content
+- `artifacts/titan-fitness-gym/src/index.css` — visual theme, typography, responsive layout, and motion support
+- `artifacts/titan-fitness-gym/public/titan-hero.jpg` — hero image asset
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The first release is intentionally frontend-only; WhatsApp is the conversion path instead of a custom booking or payment flow.
+- Owner-editable details are centralized in `src/content.ts`, with unconfirmed pricing, coach bios, and establishment year marked as placeholders.
+- The site uses restrained motion and a reduced-motion fallback so the cinematic treatment does not compromise readability or accessibility.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+The site introduces Titan Fitness Gym, highlights its training programs and community proof, surfaces location and opening hours, and drives membership enquiries to WhatsApp.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+The user provided a premium, kinetic fitness-brand direction and asked that unconfirmed details not be invented.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+Pricing, trainer names, certifications, and the established year are intentionally illustrative until the gym confirms them.
 
 ## Pointers
 

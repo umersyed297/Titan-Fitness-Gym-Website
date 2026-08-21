@@ -1,0 +1,83 @@
+# Replit Build Prompt — Titan Fitness Gym (Karachi) Website
+**Note: This gym appears to already have a website listed on Google. Verify before pitching — position this as a "redesign/upgrade" concept, not a first-time build.**
+
+Copy everything below into Replit (Agent / Replit AI) to generate the site.
+
+---
+
+## PROMPT START
+
+Build a visually striking, animation-rich, high-end fitness website for **Titan Fitness Gym**, a real gym in Karachi. Use the real business details below as actual content.
+
+### Business info (use exactly as given)
+
+- **Name:** Titan Fitness Gym
+- **Rating:** 4.7★ (107 Google reviews), 1.8K+ Facebook followers, 1.4K+ Instagram followers
+- **Address:** Shop No M1, Yousuf Grand Square, Teen Talwar, Khayaban-e-Iqbal Rd, Block 8 Clifton, Karachi, 75600
+- **Phone:** 0331 2072217
+- **Hours:** Monday–Friday 8:00 AM – 12:00 AM (midnight), Saturday 8:00 AM – 10:00 PM
+- **Positioning (from their own social bio):** "Leading fitness destination. Expert trainers, endurance training." Located at Clifton Teen Talwar, Karachi.
+- **From real reviews:** offers personal training and group/ground training for both men and women, trainers specialize in weight loss, muscle gain, and bodybuilding, clean environment, friendly and knowledgeable staff, motivating atmosphere.
+- **Trust signals to feature prominently:** 4.7★ rating, 107 reviews, growing social following (1.8K Facebook, 1.4K Instagram) — treat these as hero-section trust badges, not buried stats.
+
+### Design direction — this is the priority
+
+This should feel premium and kinetic, like a boutique fitness brand site (think Equinox, Gymshark, or F45 marketing sites) — NOT a generic template. Specifically:
+
+1. **Color & type**
+   - Dark, moody base: near-black (#0a0a0a) background with a bold single accent — electric red (#ff2b2b), volt green (#c6ff3d), or amber (#ffb020). Pick one and use it consistently.
+   - Large, condensed, heavy display typography for headlines (Bebas Neue, Anton, or Archivo Black from Google Fonts) paired with a clean readable body font (Inter or Manrope).
+   - High-contrast, editorial feel — big bold numbers, lots of negative space, no rounded "friendly SaaS" look.
+
+2. **Animation & interactivity (use Framer Motion for React)**
+   - **Hero section:** headline text that animates in with a staggered fade/slide-up on load. Background can be a subtle animated gradient, particle effect, or looping muted video/image crossfade.
+   - **Scroll-triggered reveals:** sections fade/slide into view as the user scrolls (use `whileInView` in Framer Motion) — stats, feature cards, and trainer cards should animate in with a slight stagger (each card 0.1s after the last).
+   - **Animated stat counters:** the 4.7★, 107 reviews, and follower counts should count up from 0 when scrolled into view (use a simple `useEffect` + `requestAnimationFrame` counter or a small counting hook).
+   - **Hover micro-interactions:** buttons scale/glow slightly on hover; cards lift with a shadow on hover; nav links get an animated underline.
+   - **Sticky nav** that shrinks/condenses on scroll (background goes from transparent to solid dark with a blur backdrop).
+   - **Parallax effect** on the hero background image (moves slower than scroll speed) for depth.
+   - Keep animations snappy (200–500ms), use `ease-out` curves, and respect `prefers-reduced-motion` (disable non-essential motion for accessibility).
+
+3. **Imagery**
+   - Bold, high-contrast placeholder gym photography (dark gym interiors, silhouettes lifting weights, dramatic lighting) — structure the code so real photos can be dropped in easily via a single `images` config array.
+
+### Sections
+
+1. **Hero** — Full-viewport, animated headline ("Train Like a Titan" or similar bold tagline), subtext, two CTAs: "Book a Free Trial" (WhatsApp link) and "View Membership Plans" (scrolls to pricing). Animated stat badges (4.7★ / 107 reviews / 1.8K+ followers) fade in below the fold trigger.
+
+2. **About / Philosophy** — Short, punchy paragraph on their training philosophy (personal + group training, both genders, expert trainers). Animate in as a scroll reveal with a large pull-quote style headline.
+
+3. **Programs/Training section** — Cards for: Personal Training, Group/Ground Training, Weight Loss Programs, Muscle Building/Bodybuilding. Each card animates in on scroll, hover-lifts, and has an icon (use lucide-react icons — Dumbbell, Users, TrendingDown, Flame).
+
+4. **Trainers** — Grid of trainer cards (photo, name, specialty). Pre-fill with generic "Coach" placeholders clearly marked as illustrative, structured so real names/photos/bios can be swapped via a config file.
+
+5. **Stats/Trust band** — A bold horizontal band (contrasting background) with animated counting numbers: 4.7★ rating, 107+ reviews, 1.8K+ community members, years established (placeholder, ask gym to confirm).
+
+6. **Gallery** — Animated image grid/masonry layout with a subtle hover-zoom effect on each image; consider a lightbox on click.
+
+7. **Membership/Pricing** — 2–3 tiers (Monthly / Quarterly / Annual) in bold cards, with a "Most Popular" tier visually emphasized (slightly larger, accent border, subtle glow/pulse animation). Prices as editable placeholders.
+
+8. **Testimonials** — Auto-rotating or swipeable testimonial carousel with smooth crossfade transitions, paraphrased (not verbatim-copied) versions of themes from real reviews: clean environment, expert trainers, welcoming for both genders, real results.
+
+9. **Location/Contact** — Address, embedded Google Map, hours table, phone, WhatsApp CTA, Instagram/Facebook links with icons that animate/glow on hover.
+
+10. **Sticky floating WhatsApp button** — persistent bottom-right, gentle pulse animation to draw attention, linking to `https://wa.me/923312072217` with a pre-filled message like "Hi, I'd like to know more about membership at Titan Fitness Gym."
+
+### Technical requirements
+
+- **React + Tailwind CSS + Framer Motion** (`npm install framer-motion`).
+- Use `lucide-react` for icons.
+- Fully responsive, mobile-first — most visitors will check on their phone.
+- All content (pricing, trainer bios, stats) lives in a single `content.js`/`data.js` config file for easy non-technical edits later.
+- Respect `prefers-reduced-motion` media query — provide a reduced-motion fallback (fade only, no parallax/scale).
+- Fast-loading: lazy-load images below the fold, keep animation libraries minimal.
+- Basic SEO: title "Titan Fitness Gym | Premier Gym in Clifton, Karachi", meta description mentioning personal training, group training, and Clifton/Teen Talwar location, Open Graph tags for social sharing.
+- Embed Google Maps iframe using the address above.
+
+### What NOT to do
+
+- Don't overdo animation to the point it feels laggy or gimmicky — every motion should support hierarchy/readability, not distract from it.
+- Don't invent specific pricing, trainer names, or certifications — mark these clearly as placeholders for the gym to confirm.
+- Don't add a payment/booking backend for v1 — WhatsApp is the real conversion path; keep the funnel simple.
+
+## PROMPT END

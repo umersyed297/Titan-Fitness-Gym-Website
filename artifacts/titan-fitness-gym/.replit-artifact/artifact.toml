@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Titan Fitness Gym"
+description = "A cinematic, conversion-focused website for Titan Fitness Gym in Clifton, Karachi, featuring real business details, training programs, editable membership placeholders, trust signals, and WhatsApp lead capture."
+version = "1.0.0"
+id = "artifacts/titan-fitness-gym"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25534
+
+[services.development]
+run = "pnpm --filter @workspace/titan-fitness-gym run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/titan-fitness-gym", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/titan-fitness-gym/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25534"
+BASE_PATH = "/"
